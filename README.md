@@ -13,9 +13,16 @@ Measurement (IMERG).IMERG is the Level 3 multi-satellite precipitation algorithm
 
 ##What makes these functions?
 **download_GPM.R:**
-It helps download information late, early and end run of IMERG, mainly supports the following ftp://jsimpson.pps.eosdis.nasa.gov/data/imerg/ and ftp: //arthurhou.pps.eosdis.nasa. gov / gpmdata / "axel download accelerator for download is used for the explanation of why can be reviewed https://st0rage.org/~n2j3/?page_id=225717166, the script can save the data in HDF5 or convert GeoTIFF for which executables GDAL so must be properly installed on your operating system was used.
+It helps download information late, early and end run of IMERG, mainly supports the following ftp://jsimpson.pps.eosdis.nasa.gov/data/imerg/ and ftp: //arthurhou.pps.eosdis.nasa. gov / gpmdata / "axel download accelerator for download is used for the explanation of why can be reviewed http://www.linuxjournal.com/content/speed-your-downloads-axel the script can save the data in HDF5 or convert GeoTIFF for which executables GDAL so must be properly installed on your operating system was used.
 
 **accumIMERG.R:**
 Allows parallel accumulation of files IMERG 30 minutes from time steps of 3 hours, daily and monthly.
 
 ##How to use this function?
+
+**download_GPM.R:** You need to have installed "Axel download accelerator application" and gdal.
+          Obs: If you are using Windows OS executables it should be declared as environment variables.
+          Download Linux axel: apt-get install axel
+          Download windows axel: https://st0rage.org/~n2j3/?page_id=225717166
+R libraries are used RCurl, raster, rgdal and GdalUtils, these must also be correctly installed.
+**accumIMERG.R:** You need to have installed foreach, rgdal and raster packages.
