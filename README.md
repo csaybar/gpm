@@ -14,14 +14,14 @@ Measurement (IMERG).IMERG is the Level 3 multi-satellite precipitation algorithm
 ##What makes these functions?
 **download_GPM.R:**
 It helps download information late, early and end run of IMERG, mainly supports the following ftp://jsimpson.pps.eosdis.nasa.gov/data/imerg/ and ftp: //arthurhou.pps.eosdis.nasa. gov/gpmdata/.
-The "axel download accelerator"  is used for download data, the explanation of why can be reviewed http://www.linuxjournal.com/content/speed-your-downloads-axel. The script can save the data in HDF5 or convert them to GeoTIFF , the GDAL tools Which Must Be Properly installed on your operating system is used.
+The "axel download accelerator"  is used for download data, the explanation of why can be reviewed http://www.linuxjournal.com/content/speed-your-downloads-axel. The script can save the data in HDF5 or convert them to GeoTIFF , the GDAL tools which must be properly installed on your operating system is used.
 
 **accumIMERG.R:**
 Allows parallel accumulation of files IMERG 30 minutes from time steps of 3 hours, daily and monthly.
 
 ##How to use this function?
 
-**download_GPM.R:** You need to have installed "Axel download accelerator application" and gdal.
+**download_GPM.R:** You need to have installed "Axel download accelerator application" and GDAL.
           Obs: If you are using Windows OS executables it should be declared as environment variables.
           Download Linux axel: apt-get install axel
           Download windows axel: https://st0rage.org/~n2j3/?page_id=225717166
