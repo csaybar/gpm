@@ -1,0 +1,13 @@
+Package: gpm
+Title: Download the IMERG level 3 Products using R
+Version: 0.0.0.1
+Description: Download the IMERG level 3 Products using R
+Depends: R (>= 3.0.0)
+Imports: magrittr, purrr, RCurl, gdalUtils, raster, lubridate, stringr
+Date: 2018-12-20
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Author: Cesar Aybar
+Maintainer: Cesar  Aybar <csaybar@gmail.com>
