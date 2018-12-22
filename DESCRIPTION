@@ -1,7 +1,7 @@
 Package: gpm
 Title: Download the IMERG level 3 Products using R
 Version: 0.0.0.1
-Description: Download the IMERG level 3 Products using R
+Description: Download IMERG v05B Final, Early and Late Run as GeoTIFF files using R.
 Depends: R (>= 3.0.0)
 Imports: magrittr, purrr, RCurl, gdalUtils, raster, lubridate, stringr
 Date: 2018-12-20
