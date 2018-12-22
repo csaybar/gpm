@@ -6,6 +6,17 @@
 \usage{
 axel(url, destfile, n, s, quiet)
 }
+\arguments{
+\item{url}{A character string naming the URL of a resource to be downloaded.}
+
+\item{destfile}{A character string with the name where the downloaded file will be saved.}
+
+\item{n}{Specify maximum number of connections.}
+
+\item{s}{Specify maximum speed (bytes per second).}
+
+\item{quiet}{Leave stdout alone.}
+}
 \description{
 Download files via axel
 }

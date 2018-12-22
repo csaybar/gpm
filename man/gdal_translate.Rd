@@ -6,6 +6,15 @@
 \usage{
 gdal_translate(hdf5, band, outfile, removeHDF5)
 }
+\arguments{
+\item{hdf5}{A character string naming the HDF5 file.}
+
+\item{band}{A numeric, indicate the band to extract.}
+
+\item{outfile}{A character string with the name where the geoTIFF will be saved.}
+
+\item{removeHDF5}{logical,Remove HD5 files after the conversion to geoTIFF.}
+}
 \description{
 HDF5 to GEOTIFF using GDAL
 }

@@ -1,21 +1,22 @@
 #' Download IMERG v05B Final, Early and Late Run
 #'
 #' @author Cesar Aybar
-#' @description Download IMERG v05B Final, Early and Late Run
+#' @description Download IMERG v05B Final, Early and Late Run.
 #' @param path path (character). The default corresponds to the working directory, getwd(). Missing values will be ignored.
 #' @param user pmm user (character). See https://pmm.nasa.gov/data-access/downloads/gpm
 #' @param password pmm password (character). See https://pmm.nasa.gov/data-access/downloads/gpm
 #' @param product IMERG product (character). Currently are supported: 'finalrun', 'late' and 'early'.
 #' @param dates sequences of days.
-#' @param band band "HQobservationTime" = 1.
-#'              band "HQprecipSource" = 2.
-#'              band "HQprecipitation" = 3.
-#'              band "IRkalmanFilterWeight" = 4.
-#'              band "IRprecipitation" = 5.
-#'              band "precipitationCal" = 6.
-#'              band "precipitationUncal" = 7.
-#'              band "probabilityLiquidPrecipitation" = 8.
-#'              band "randomError" = 9.
+#' @param band The available bands are: \cr 
+#' band "HQobservationTime" = 1. \cr 
+#' band "HQprecipSource" = 2. \cr 
+#' band "HQprecipitation" = 3. \cr 
+#' band "IRkalmanFilterWeight" = 4. \cr 
+#' band "IRprecipitation" = 5. \cr 
+#' band "precipitationCal" = 6. \cr 
+#' band "precipitationUncal" = 7. \cr 
+#' band "probabilityLiquidPrecipitation" = 8. \cr 
+#' band "randomError" = 9. \cr 
 #' @param lonMin Minimum latitude of bounding box
 #' @param lonMax Maximum latitude of bounding box
 #' @param latMin Minimum longitude of bounding box
@@ -23,22 +24,20 @@
 #' @param removeHDF5 Remove HD5 files after the conversion to GEOTIFF
 #' @param quiet logical; suppress info of the download.
 #' @param n Specify maximum number of connections (axel parameter)
-#' @param s Specify maximum speed (megabytes per second)
+#' @param s Specify maximum speed (bytes per second)
 #' @details
 #' You need to have installed "Axel download accelerator
 #' application" and GDAL. Obs: If you are using Windows,
 #' the executables of "GDAL" and "AXEL" must be set as
-#' system variables.
+#' system variables. For install axel try the following: \cr
 #'
-#' For install axel try the following:
+#' Ubuntu/Debian users: apt-get install axel \cr
+#' Windows users: gpm_getaxel() \cr
 #'
-#' Linux users: apt-get install axel
-#'
-#' Windows axel: https://drive.google.com/uc?authuser=0&id=12T6R32-kAZPxbeCC3VdPx_KjqtxHWDt6
-#'
-#' Use of the PPS FTP to download GPM and TRMM data is free, but you are required to first register your email address
-#' http://registration.pps.eosdis.nasa.gov/registration/
-#' You can found more about axel here: https://github.com/axel-download-accelerator/axel/issues.
+#' The use of the "PPS" ftp to download GPM and TRMM data is free, but you first need register
+#' your email address in http://registration.pps.eosdis.nasa.gov/registration/.
+#' You can found more information about axel here:\cr
+#' https://github.com/axel-download-accelerator/axel/.
 #' @importFrom raster raster res extent flip crop writeRaster projection 'res<-' 'projection<-' as.matrix
 #' @importFrom lubridate year day month
 #' @importFrom gdalUtils get_subdatasets
@@ -69,14 +68,15 @@ gpm_download <- function(path,
                          latMax = 1.25,
                          removeHDF5 = TRUE,
                          quiet = TRUE,
-                         n = 2,
-                         s = 2.6
+                         n = 1,
+                         s = 2600000
 ) {
-
+  
   # 1._ Create a list with the files to download
   message('Searching the IMERG-HDF5 files ... please wait')
   userpwd <- sprintf("%s:%s",user,password)
-
+  axel_exist()
+  gdaltranslate_exist()
   if (product == 'early') {
     url <- 'ftp://jsimpson.pps.eosdis.nasa.gov/NRTPUB/imerg/early/'
     url_m <- sprintf('%s/%s%02d/',
@@ -186,7 +186,7 @@ gpm_download <- function(path,
   } else {
     stop('The "product" argument only can be: "finalrun", "late" or "early".')
   }
-
+  
   # 2. Downloading one by one the IMERG files
   datesf2 <- names(imerg_files)
   for (x in 1:length(datesf2)) {

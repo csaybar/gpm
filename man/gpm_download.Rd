@@ -6,7 +6,7 @@
 \usage{
 gpm_download(path, user, password, dates, product, band = 6,
   lonMin = -86, lonMax = -66, latMin = -19.25, latMax = 1.25,
-  removeHDF5 = TRUE, quiet = TRUE, n = 2, s = 2.6)
+  removeHDF5 = TRUE, quiet = TRUE, n = 1, s = 2600000)
 }
 \arguments{
 \item{path}{path (character). The default corresponds to the working directory, getwd(). Missing values will be ignored.}
@@ -19,15 +19,16 @@ gpm_download(path, user, password, dates, product, band = 6,
 
 \item{product}{IMERG product (character). Currently are supported: 'finalrun', 'late' and 'early'.}
 
-\item{band}{band "HQobservationTime" = 1.
-band "HQprecipSource" = 2.
-band "HQprecipitation" = 3.
-band "IRkalmanFilterWeight" = 4.
-band "IRprecipitation" = 5.
-band "precipitationCal" = 6.
-band "precipitationUncal" = 7.
-band "probabilityLiquidPrecipitation" = 8.
-band "randomError" = 9.}
+\item{band}{The available bands are: \cr 
+band "HQobservationTime" = 1. \cr 
+band "HQprecipSource" = 2. \cr 
+band "HQprecipitation" = 3. \cr 
+band "IRkalmanFilterWeight" = 4. \cr 
+band "IRprecipitation" = 5. \cr 
+band "precipitationCal" = 6. \cr 
+band "precipitationUncal" = 7. \cr 
+band "probabilityLiquidPrecipitation" = 8. \cr 
+band "randomError" = 9. \cr}
 
 \item{lonMin}{Minimum latitude of bounding box}
 
@@ -43,26 +44,24 @@ band "randomError" = 9.}
 
 \item{n}{Specify maximum number of connections (axel parameter)}
 
-\item{s}{Specify maximum speed (megabytes per second)}
+\item{s}{Specify maximum speed (bytes per second)}
 }
 \description{
-Download IMERG v05B Final, Early and Late Run
+Download IMERG v05B Final, Early and Late Run.
 }
 \details{
 You need to have installed "Axel download accelerator
 application" and GDAL. Obs: If you are using Windows,
 the executables of "GDAL" and "AXEL" must be set as
-system variables.
+system variables. For install axel try the following: \cr
 
-For install axel try the following:
+Ubuntu/Debian users: apt-get install axel \cr
+Windows users: gpm_getaxel() \cr
 
-Linux users: apt-get install axel
-
-Windows axel: https://drive.google.com/uc?authuser=0&id=12T6R32-kAZPxbeCC3VdPx_KjqtxHWDt6
-
-Use of the PPS FTP to download GPM and TRMM data is free, but you are required to first register your email address
-http://registration.pps.eosdis.nasa.gov/registration/
-You can found more about axel here: https://github.com/axel-download-accelerator/axel/issues.
+The use of the "PPS" ftp to download GPM and TRMM data is free, but you first need register
+your email address in http://registration.pps.eosdis.nasa.gov/registration/.
+You can found more information about axel here:\cr
+https://github.com/axel-download-accelerator/axel/.
 }
 \examples{
 \dontrun{
