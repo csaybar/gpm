@@ -2,9 +2,9 @@
 gpm is a R package that is able to download IMERG v05B Final, Early and Late Run products using axel.
 
 ## Installing
-
+``` r
 devtools::install_github("csaybar/gpm")
-
+```
 ## Example
 ``` r
 library(gpm)
