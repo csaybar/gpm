@@ -17,7 +17,7 @@ gpm_download(path = '~/gpm',
 ```
 
 ## Windows user
-If you are using Windows, the executables of "GDAL" and "axel" must be set in the your PATH system variables. For get axel try the following: 
+If you are using Windows, the executables of "GDAL" and "axel" must be set as PATH system variables. Acquire **axel** by following:
 
 ``` r
 library(gpm)
