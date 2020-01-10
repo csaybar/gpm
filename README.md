@@ -1,3 +1,4 @@
+![](https://img.shields.io/badge/lifecycle-retired-orange.svg)
 # gpm
 gpm is a R package that is able to download IMERG v05B Final, Early and Late Run products using axel.
 
